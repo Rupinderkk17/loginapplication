@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,12 +29,20 @@ class MainActivity : AppCompatActivity() {
         btnLogin.setOnClickListener {
             if(etEmail.text.toString().isNullOrEmpty()){
                 etEmail.error = resources.getString(R.string.enter_email)
+                val requestFocus = etEmail.requestFocus()
             }else if(etPassword.text.toString().isNullOrEmpty()){
-                etPassword.error = resources.getString(R.string.enter_password)
-            }else{
-                
+
+            }
+            else{
+
             }
         }
         //clicks ended
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Toast.makeText(this, "wait app opening", Toast.LENGTH_LONG).show()
     }
 }
